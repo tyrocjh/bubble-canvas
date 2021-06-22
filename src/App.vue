@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <bubble-canvas :img-url="dragonImage"></bubble-canvas>
+  <mosaic-canvas :img-url="flowerImage"></mosaic-canvas>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BubbleCanvas from './components/BubbleCanvas.vue';
+import MosaicCanvas from './components/MosaicCanvas.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    BubbleCanvas,
+    MosaicCanvas
+  },
+  setup() {
+    const dragonImage = require('@/assets/dragon.jpg');
+    const flowerImage = require('@/assets/flower.jpg');
+
+    return {
+      dragonImage,
+      flowerImage
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
